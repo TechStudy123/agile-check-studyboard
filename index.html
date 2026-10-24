@@ -12,6 +12,7 @@
 <script>
 fetch("data/events.json").then(r => r.json()).then(events => {
   const ul = document.getElementById("events");
+  events.sort((a, b) => a.date.localeCompare(b.date));
   for (const e of events) {
     const li = document.createElement("li");
     li.textContent = `${e.date} ${e.title}（${e.place}・定員 ${e.capacity} 名）`;
